@@ -5,6 +5,7 @@ import 'screens/login_screen.dart';
 import 'screens/map_screen.dart';
 import 'screens/rider_map_screen.dart';
 import 'services/logger_service.dart';
+import 'config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +13,7 @@ void main() async {
   // 1. Initialize persistent file logger
   await AppLogger.initialize();
   AppLogger.info('AppMain', 'Rapid Ride mobile client starting up');
+  AppLogger.info('AppMain', 'Active Configuration: ${AppConfig.summary}');
 
   // 2. Global Flutter framework error boundary
   FlutterError.onError = (FlutterErrorDetails details) {
